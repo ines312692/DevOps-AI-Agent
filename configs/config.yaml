@@ -1,0 +1,26 @@
+# ============================
+# Configuration for AI DevOps Agent
+# ============================
+
+# ---- Source of metrics ----
+source:
+  kind: csv
+  path: data/sample_metrics.csv
+
+# ---- Anomaly Detection ----
+detection:
+  method: rolling_zscore          # Options: rolling_zscore | isolation_forest
+  zscore_threshold: 3.0
+  rolling_window: 20
+
+# ---- Notification Settings ----
+notifier:
+  print: true                     # Only print to terminal
+
+# ---- Summarization ----
+summary:
+  mode: templated
+
+# ---- Runtime Controls ----
+runtime:
+  limit_alerts: 10
